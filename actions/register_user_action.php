@@ -1,4 +1,13 @@
 <?php
+// ✅ Enable detailed error logging (test version)
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // hide from browser
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../logs/register_errors.log'); // store in logs folder
+
+// 🔍 Log a quick test message to confirm logging works
+file_put_contents(__DIR__ . '/../logs/register_errors.log', "Logging test started\n", FILE_APPEND);
+trigger_error("Test error from register_user_action.php — verifying log", E_USER_WARNING);
 
 // Use the enhanced session management from core.php
 require_once '../src/settings/core.php';
